@@ -29,10 +29,6 @@ package json.frigga
 	import json.frigga.report.FriggaMessage;
 	import json.frigga.report.FriggaReport;
 
-	/**
-	 * 
-	 * @author rbajales@playdom.com
-	 */
 	public class SimpleUsageTest
 	{	
 		private var invalidObject : Object = {

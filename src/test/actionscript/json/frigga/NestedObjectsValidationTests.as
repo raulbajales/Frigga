@@ -27,10 +27,6 @@ package json.frigga
 	
 	import json.frigga.report.FriggaReport;
 	
-	/**
-	 * 
-	 * @author rbajales@playdom.com
-	 */
 	public class NestedObjectsValidationTests
 	{		
 		private var placeInTheWorldSchema : Object = {

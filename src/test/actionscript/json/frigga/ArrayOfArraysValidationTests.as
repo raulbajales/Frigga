@@ -27,10 +27,6 @@ package json.frigga
 	
 	import json.frigga.report.FriggaReport;
 
-	/**
-	 * 
-	 * @author rbajales@playdom.com
-	 */
 	public class ArrayOfArraysValidationTests
 	{		
 		private var schema : Object = {
