@@ -1,0 +1,90 @@
+Frigga - AS3 JSON Schema Validator
+==================================
+
+Take a look to the spec here:
+
+http://tools.ietf.org/html/draft-zyp-json-schema-03
+
+It's a work in progress. It supports most of the "Core Schema Definition", including:
+type
+properties
+items
+minimum
+maximum
+exclusiveMinimum
+exclusiveMaximum
+minItems
+maxItems
+pattern
+minLength
+maxLength
+enum
+default
+title
+description
+format
+id
+
+Usage example:
+==============
+
+private var invalidObject : Object = {
+	id : "shoe 123",
+	name : "Shoes",
+	price : -20
+};
+
+private var validObject : Object = {
+	id : 123,
+	name : "Shoes",
+	price : 15
+};
+	
+private var schema : Object = {
+	name : "Product",
+	description : "Product definition",
+	type : "object",
+	properties : {
+		id : {
+			type : "number",
+			description : "Product identifier"
+		},
+		name : {
+			description : "Name of the product",
+			type : "string"
+		},
+		price : {
+			type : "number",
+			minimum : 0
+		}
+	}
+}; 
+
+public function validateAndCheckReport() : void {
+	var frigga : Frigga = Frigga.forSchema(this.schema);
+	var report : FriggaReport = frigga.validate(this.ialidObject);
+	trace(report.isValid());
+	trace(report.getMessagesAsString());
+}
+
+To see more examples take a look to the unit tests:
+https://github.com/raulbajales/Frigga/tree/master/src/test/actionscript/json/frigga/
+
+TBD:
+====
+
+- Add support for "tuple typing"
+- Add a repository of schemas to handle schema composition by reference (noy it handles schema composition inline)
+- Add support for "Hyper Schema"
+- Add support for the following parts of the "Core Schema Definition":
+patternProxperties
+additionalProperties
+additionalItems
+required
+dependencies
+uniqueItems
+divisibleBy
+disallow
+extends
+$ref
+$schema 
