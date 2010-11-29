@@ -28,19 +28,13 @@ id
 Usage example:
 ==============
 
-private var invalidObject : Object = {
+var anObject : Object = {
 	id : "shoe 123",
 	name : "Shoes",
 	price : -20
 };
-
-private var validObject : Object = {
-	id : 123,
-	name : "Shoes",
-	price : 15
-};
 	
-private var schema : Object = {
+var schema : Object = {
 	name : "Product",
 	description : "Product definition",
 	type : "object",
@@ -60,12 +54,17 @@ private var schema : Object = {
 	}
 }; 
 
-public function validateAndCheckReport() : void {
-	var frigga : Frigga = Frigga.forSchema(this.schema);
-	var report : FriggaReport = frigga.validate(this.ialidObject);
-	trace(report.isValid());
-	trace(report.getMessagesAsString());
-}
+var frigga : Frigga = Frigga.forSchema(this.schema);
+var report : FriggaReport = frigga.validate(this.anObject);
+trace(report.isValid());
+trace(report.getMessagesAsString());
+
+... and here is the output:
+
+errors (message | property | actualValue): 
+number is out of range | price | -20
+invalid type on property | id | string
+
 
 To see more examples take a look to the unit tests:
 https://github.com/raulbajales/Frigga/tree/master/src/test/actionscript/json/frigga/
