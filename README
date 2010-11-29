@@ -56,11 +56,12 @@ var schema : Object = {
 
 var frigga : Frigga = Frigga.forSchema(this.schema);
 var report : FriggaReport = frigga.validate(this.anObject);
-trace(report.isValid());
+trace("Is valid? " + report.isValid());
 trace(report.getMessagesAsString());
 
 ... and here is the output:
 
+Is valid? false
 errors (message | property | actualValue): 
 number is out of range | price | -20
 invalid type on property | id | string
