@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is an auto generated file and is not intended for modification. -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:flexui="flexunit.flexui.*" creationComplete="onCreationComplete()">
+	<fx:Script>
+		<![CDATA[
+			import json.frigga.schema.SimpleSchemaTests;
+			import json.frigga.schema.NestedSchemaPathTests;
+			import json.frigga.SimpleUsageTest;
+			import json.frigga.NestedObjectsValidationTests;
+			import json.frigga.MandatoryPropertiesValidationTests;
+			import json.frigga.ItemsValidationTests;
+			import json.frigga.ArrayWithNoItemsValidationTests;
+			import json.frigga.ArrayOfArraysValidationTests;
+			
+			public function currentRunTestSuite():Array
+			{
+				var testsToRun:Array = new Array();
+				testsToRun.push(json.frigga.ArrayOfArraysValidationTests);
+				testsToRun.push(json.frigga.ArrayWithNoItemsValidationTests);
+				testsToRun.push(json.frigga.ItemsValidationTests);
+				testsToRun.push(json.frigga.MandatoryPropertiesValidationTests);
+				testsToRun.push(json.frigga.NestedObjectsValidationTests);
+				testsToRun.push(json.frigga.SimpleUsageTest);
+				testsToRun.push(json.frigga.schema.NestedSchemaPathTests);
+				testsToRun.push(json.frigga.schema.SimpleSchemaTests);
+				return testsToRun;
+			}
+			
+			
+			private function onCreationComplete():void
+			{
+				testRunner.runWithFlexUnit4Runner(currentRunTestSuite(), "frigga");
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<flexui:FlexUnitTestRunnerUI id="testRunner">
+	</flexui:FlexUnitTestRunnerUI>
+</s:Application>
